@@ -1,0 +1,48 @@
+name: Publicar en el hosting
+
+# Genera el sitio y lo sube por FTP al hosting de Donweb.
+# Necesita tres "secrets" del repositorio (Settings → Secrets and variables → Actions):
+#   FTP_SERVER    servidor FTP (por ejemplo ftp.vocesdeltourette.com)
+#   FTP_USERNAME  usuario FTP
+#   FTP_PASSWORD  contraseña FTP
+# y una variable (pestaña Variables):
+#   FTP_DIR       carpeta de destino, terminada en "/" (por ejemplo public_html/nuevo/)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+      FTP_DIR: ${{ vars.FTP_DIR }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generar el sitio
+        run: node build.mjs
+      - name: Avisar si falta la configuración
+        if: env.FTP_SERVER == '' || env.FTP_DIR == ''
+        run: echo "::warning::Faltan los datos de FTP (secrets FTP_SERVER, FTP_USERNAME, FTP_PASSWORD y variable FTP_DIR). No se subió nada."
+      - name: Subir por FTP
+        if: env.FTP_SERVER != '' && env.FTP_DIR != ''
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ vars.FTP_PROTOCOLO || 'ftps' }}
+          local-dir: ./docs/
+          server-dir: ${{ vars.FTP_DIR }}

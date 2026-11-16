@@ -2,7 +2,7 @@
   "nombre": "Voces del Tourette",
   "url": "https://vocesdeltourette.com",
   "vistaPrevia": true,
-  "basePrevia": "/voces-del-tourette/",
+  "basePrevia": "/nuevo/",
   "descripcion": "Información clara y con aval científico sobre el síndrome de Tourette para personas con tics, familias y escuelas.",
   "email": "info@vocesdeltourette.com",
   "instagram": "https://www.instagram.com/vocesdeltourette/",
@@ -11,13 +11,34 @@
     "url": "https://mariabelenprieto.com/"
   },
   "menu": [
-    { "slug": "que-es-el-sindrome-de-tourette", "texto": "Qué es" },
-    { "slug": "diagnostico-y-tratamiento", "texto": "Diagnóstico y tratamiento" },
-    { "slug": "escuelas", "texto": "Escuelas" },
-    { "slug": "familia-y-comunidad", "texto": "Familias" },
-    { "slug": "blog", "texto": "Biblioteca" },
-    { "slug": "quiensoy", "texto": "Quién soy" },
-    { "slug": "contacto", "texto": "Contacto" }
+    {
+      "slug": "que-es-el-sindrome-de-tourette",
+      "texto": "Qué es"
+    },
+    {
+      "slug": "diagnostico-y-tratamiento",
+      "texto": "Diagnóstico y tratamiento"
+    },
+    {
+      "slug": "escuelas",
+      "texto": "Escuelas"
+    },
+    {
+      "slug": "familia-y-comunidad",
+      "texto": "Familias"
+    },
+    {
+      "slug": "blog",
+      "texto": "Biblioteca"
+    },
+    {
+      "slug": "quiensoy",
+      "texto": "Quién soy"
+    },
+    {
+      "slug": "contacto",
+      "texto": "Contacto"
+    }
   ],
   "paginas": [
     {
@@ -71,9 +92,23 @@
     {
       "slug": "contacto",
       "titulo": "Contacto",
-      "resumen": "Escríbenos por correo o por Instagram.",
+      "resumen": "Escríbenos con el formulario, por correo o por Instagram.",
       "descripcion": "Contacta con Voces del Tourette por correo electrónico o Instagram.",
       "fecha": "2020-08-04"
+    },
+    {
+      "slug": "aviso-legal",
+      "titulo": "Aviso legal",
+      "resumen": "Quién es la titular del sitio y en qué condiciones se puede usar.",
+      "descripcion": "Aviso legal de Voces del Tourette: titular, condiciones de uso y propiedad intelectual.",
+      "fecha": "2026-11-16"
+    },
+    {
+      "slug": "politica-de-privacidad",
+      "titulo": "Política de privacidad",
+      "resumen": "Qué datos tratamos cuando nos escribes y cómo ejercer tus derechos.",
+      "descripcion": "Política de privacidad de Voces del Tourette: qué datos se tratan, para qué y cómo ejercer tus derechos.",
+      "fecha": "2026-11-16"
     }
   ],
   "articulos": [

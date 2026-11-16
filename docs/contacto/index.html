@@ -47,17 +47,71 @@
         <div class="ancho">
           <nav class="migas" aria-label="Ruta de navegación"><a href="../">Inicio</a> / <span>Contacto</span></nav>
           <h1>Contacto</h1>
-          <p class="entradilla">Escríbenos por correo o por Instagram.</p>
+          <p class="entradilla">Escríbenos con el formulario, por correo o por Instagram.</p>
         </div>
       </header>
       <div class="ancho">
         <div class="prosa">
-<p>¿Tienes una duda, quieres compartir tu experiencia o proponer un tema? Escríbenos.</p>
+<p>¿Tienes una duda, quieres compartir tu experiencia o proponer un tema? Escríbenos y te responderemos por correo.</p>
+
+<form class="formulario" action="../enviar.php" method="post" novalidate>
+  <p class="campo">
+    <label for="f-nombre">Nombre</label>
+    <input id="f-nombre" name="nombre" type="text" autocomplete="name" maxlength="100" required>
+  </p>
+  <p class="campo">
+    <label for="f-email">Correo electrónico</label>
+    <input id="f-email" name="email" type="email" autocomplete="email" maxlength="150" required>
+  </p>
+  <p class="campo">
+    <label for="f-mensaje">Mensaje</label>
+    <textarea id="f-mensaje" name="mensaje" rows="7" maxlength="5000" required aria-describedby="f-ayuda"></textarea>
+    <span id="f-ayuda" class="ayuda">No hace falta que incluyas datos médicos detallados. Si necesitas una consulta profesional, pídela en <a href="https://mariabelenprieto.com/#contacto">mariabelenprieto.com</a>.</span>
+  </p>
+  <p class="campo trampa" aria-hidden="true">
+    <label for="f-web">No rellenes este campo</label>
+    <input id="f-web" name="web" type="text" tabindex="-1" autocomplete="off">
+  </p>
+  <p class="campo casilla">
+    <input id="f-acepto" name="acepto" type="checkbox" value="1" required>
+    <label for="f-acepto">He leído y acepto la <a href="../politica-de-privacidad/">política de privacidad</a>.</label>
+  </p>
+  <p class="aviso-datos">Responsable: María Belén Prieto. Finalidad: responder a tu mensaje. Base legal: tu consentimiento. No cedemos tus datos a terceros. Puedes acceder a ellos, corregirlos o pedir que los borremos escribiendo a info@vocesdeltourette.com.</p>
+  <p><button class="boton boton-oscuro" type="submit">Enviar mensaje</button></p>
+  <p class="estado" role="status" aria-live="polite"></p>
+</form>
+
+<h2>Otras formas de escribirnos</h2>
 <ul class="contacto">
   <li><span>Correo</span> <a href="mailto:info@vocesdeltourette.com">info@vocesdeltourette.com</a></li>
   <li><span>Instagram</span> <a href="https://www.instagram.com/vocesdeltourette/" rel="noopener">@vocesdeltourette</a></li>
 </ul>
-<p>Si buscas una consulta profesional, puedes pedirla en la web de Belén: <a href="https://mariabelenprieto.com/#contacto">mariabelenprieto.com</a>.</p>
+
+<script>
+(function () {
+  var f = document.querySelector('.formulario'); if (!f) return;
+  var estado = f.querySelector('.estado'), boton = f.querySelector('button[type="submit"]');
+  function decir(texto, tipo) { estado.textContent = texto; estado.className = 'estado ' + (tipo || ''); }
+  var q = new URLSearchParams(location.search);
+  if (q.get('enviado') === '1') decir('Mensaje enviado. Te responderemos por correo.', 'ok');
+  if (q.get('error')) decir('No se pudo enviar el mensaje. Revisa los campos o escríbenos a info@vocesdeltourette.com.', 'error');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!f.nombre.value.trim() || !f.mensaje.value.trim()) return decir('Escribe tu nombre y tu mensaje.', 'error');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())) return decir('Escribe un correo electrónico válido para que podamos responderte.', 'error');
+    if (!f.acepto.checked) return decir('Para enviar el mensaje tienes que aceptar la política de privacidad.', 'error');
+    boton.disabled = true; decir('Enviando…');
+    fetch(f.action, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok && d.ok, d: d }; }); })
+      .then(function (r) {
+        if (r.ok) { f.reset(); decir('Mensaje enviado. Te responderemos por correo.', 'ok'); }
+        else decir(r.d.mensaje || 'No se pudo enviar el mensaje. Escríbenos a info@vocesdeltourette.com.', 'error');
+      })
+      .catch(function () { decir('No se pudo enviar el mensaje. Escríbenos a info@vocesdeltourette.com.', 'error'); })
+      .then(function () { boton.disabled = false; });
+  });
+})();
+</script>
 
         </div>
       </div>
@@ -86,6 +140,8 @@
         <li><a href="../contacto/">Contacto</a></li>
         <li><a href="https://www.instagram.com/vocesdeltourette/" rel="noopener">Instagram</a></li>
         <li><a href="mailto:info@vocesdeltourette.com">info@vocesdeltourette.com</a></li>
+        <li><a href="../aviso-legal/">Aviso legal</a></li>
+        <li><a href="../politica-de-privacidad/">Política de privacidad</a></li>
       </ul>
     </div>
     <div class="ancho pie-nota">

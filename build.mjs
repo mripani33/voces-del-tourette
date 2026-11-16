@@ -1,6 +1,6 @@
 // Generador del sitio Voces del Tourette. Sin dependencias: `node build.mjs`.
 // Lee content/ (sitio.json + fragmentos HTML) y escribe el sitio completo en docs/,
-// que es la carpeta que publica GitHub Pages.
+// que es la carpeta que se sube al hosting.
 import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -85,6 +85,8 @@ ${cuerpo}
         <li><a href="${base}contacto/">Contacto</a></li>
         <li><a href="${sitio.instagram}" rel="noopener">Instagram</a></li>
         <li><a href="mailto:${sitio.email}">${sitio.email}</a></li>
+        <li><a href="${base}aviso-legal/">Aviso legal</a></li>
+        <li><a href="${base}politica-de-privacidad/">Política de privacidad</a></li>
       </ul>
     </div>
     <div class="ancho pie-nota">
@@ -293,7 +295,6 @@ ${urls.map((u) => `  <url><loc>${u.loc}</loc>${u.mod ? `<lastmod>${u.mod}</lastm
     ? 'User-agent: *\nDisallow: /\n'
     : `User-agent: *\nAllow: /\n\nSitemap: ${sitio.url}/sitemap.xml\n`);
   escribir('.nojekyll', '');
-  if (!sitio.vistaPrevia) escribir('CNAME', new URL(sitio.url).hostname + '\n');
   cpSync(join(RAIZ, 'assets'), SALIDA, { recursive: true });
 }
 
