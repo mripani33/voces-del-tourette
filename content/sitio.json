@@ -1,0 +1,95 @@
+{
+  "nombre": "Voces del Tourette",
+  "url": "https://vocesdeltourette.com",
+  "vistaPrevia": true,
+  "basePrevia": "/voces-del-tourette/",
+  "descripcion": "Información clara y con aval científico sobre el síndrome de Tourette para personas con tics, familias y escuelas.",
+  "email": "info@vocesdeltourette.com",
+  "instagram": "https://www.instagram.com/vocesdeltourette/",
+  "autora": {
+    "nombre": "María Belén Prieto",
+    "url": "https://mariabelenprieto.com/"
+  },
+  "menu": [
+    { "slug": "que-es-el-sindrome-de-tourette", "texto": "Qué es" },
+    { "slug": "diagnostico-y-tratamiento", "texto": "Diagnóstico y tratamiento" },
+    { "slug": "escuelas", "texto": "Escuelas" },
+    { "slug": "familia-y-comunidad", "texto": "Familias" },
+    { "slug": "blog", "texto": "Biblioteca" },
+    { "slug": "quiensoy", "texto": "Quién soy" },
+    { "slug": "contacto", "texto": "Contacto" }
+  ],
+  "paginas": [
+    {
+      "slug": "que-es-el-sindrome-de-tourette",
+      "titulo": "Qué es el síndrome de Tourette",
+      "resumen": "Qué son los tics, cómo se manifiestan y qué otras dificultades suelen acompañarlos.",
+      "descripcion": "Qué es el síndrome de Tourette: tics motores y fónicos, a quién afecta, qué lo acompaña y por qué no impide llevar una vida plena.",
+      "fecha": "2020-08-04",
+      "enInicio": true
+    },
+    {
+      "slug": "diagnostico-y-tratamiento",
+      "titulo": "Diagnóstico y tratamiento",
+      "resumen": "Cómo se llega al diagnóstico, quién lo hace y qué tratamientos tienen evidencia.",
+      "descripcion": "Cómo se diagnostica el síndrome de Tourette, qué profesional lo hace y qué tratamientos existen: medicación, terapia conductual y CBIT.",
+      "fecha": "2020-08-04",
+      "enInicio": true
+    },
+    {
+      "slug": "escuelas",
+      "titulo": "El síndrome de Tourette en la escuela",
+      "tituloCorto": "Escuelas",
+      "resumen": "Cómo explicarlo en el colegio, qué adaptaciones ayudan y cómo prevenir el acoso.",
+      "descripcion": "Síndrome de Tourette en la escuela: cómo explicarlo a los profesores, qué adaptaciones ayudan en el aula y cómo favorecer la inclusión.",
+      "fecha": "2020-08-04",
+      "enInicio": true
+    },
+    {
+      "slug": "familia-y-comunidad",
+      "titulo": "Familia y comunidad",
+      "resumen": "Sugerencias para acompañar a un hijo con Tourette o para convivir con él siendo adulto.",
+      "descripcion": "Sugerencias para familias y personas con síndrome de Tourette: informarse, buscar apoyo, trabajar con la escuela y prevenir el acoso.",
+      "fecha": "2020-08-05",
+      "enInicio": true
+    },
+    {
+      "slug": "sitios-de-referencia",
+      "titulo": "Sitios de referencia",
+      "resumen": "Dónde consultar para recibir un diagnóstico o iniciar un tratamiento.",
+      "descripcion": "Profesionales y centros de referencia para consultar por síndrome de Tourette y trastornos de tics.",
+      "fecha": "2020-08-05",
+      "enInicio": true
+    },
+    {
+      "slug": "quiensoy",
+      "titulo": "Quién soy",
+      "resumen": "La historia de Belén, psicóloga y persona con síndrome de Tourette.",
+      "descripcion": "Belén Prieto, psicóloga certificada en CBIT y persona con síndrome de Tourette, cuenta por qué creó Voces del Tourette.",
+      "fecha": "2020-08-04"
+    },
+    {
+      "slug": "contacto",
+      "titulo": "Contacto",
+      "resumen": "Escríbenos por correo o por Instagram.",
+      "descripcion": "Contacta con Voces del Tourette por correo electrónico o Instagram.",
+      "fecha": "2020-08-04"
+    }
+  ],
+  "articulos": [
+    {
+      "slug": "ttag-board-member",
+      "titulo": "Me uno al Board de TTAG, Tics and Tourette Across the Globe",
+      "resumen": "Belén ha sido nombrada miembro del Board de la organización que une a las asociaciones de Tourette de todo el mundo.",
+      "fecha": "2026-01-31",
+      "autora": "María Belén Prieto"
+    },
+    {
+      "slug": "la-evaluacion-neuropsicologica-en-ninos-y-adolescente-con-sindrome-de-tourette-st",
+      "titulo": "La evaluación neuropsicológica en niños y adolescentes con síndrome de Tourette",
+      "resumen": "Por qué y para qué se evalúa, y cómo ayuda a diseñar el tratamiento y los apoyos en el aula.",
+      "fecha": "2020-08-31",
+      "autora": "Lic. Aldana Garcia y Lic. Yamila Soffita"
+    }
+  ]
+}
